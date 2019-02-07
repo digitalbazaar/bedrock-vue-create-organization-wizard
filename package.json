@@ -1,0 +1,30 @@
+{
+  "name": "bedrock-vue-create-organization-wizard",
+  "version": "0.0.1-0",
+  "description": "Vue.js create organization wizard component for Bedrock Web apps",
+  "main": "index.js",
+  "less": "main.less",
+  "peerDependencies": {
+    "bedrock-quasar": "^2.0.0",
+    "vue": "^2.5.16"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/digitalbazaar/bedrock-vue-create-organization-wizard"
+  },
+  "keywords": [
+    "bedrock"
+  ],
+  "author": {
+    "name": "Digital Bazaar, Inc.",
+    "email": "support@digitalbazaar.com",
+    "url": "https://digitalbazaar.com"
+  },
+  "bugs": {
+    "url": "https://github.com/digitalbazaar/bedrock-vue-create-organization-wizard/issues"
+  },
+  "homepage": "https://github.com/digitalbazaar/bedrock-vue-create-organization-wizard",
+  "bedrock": {
+    "browserDependencies": "all"
+  }
+}
