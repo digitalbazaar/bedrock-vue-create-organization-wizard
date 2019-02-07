@@ -1,0 +1,64 @@
+{
+  "name": "bedrock-vue-create-organization-wizard-test",
+  "version": "0.0.1-0",
+  "description": "Vue.js create organization wizard component for Bedrock Web apps test",
+  "private": true,
+  "main": "index.js",
+  "less": "app.less",
+  "scripts": {
+    "test": "node --preserve-symlinks test.js test --framework karma",
+    "postinstall": "node --preserve-symlinks test.js compile-less"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/digitalbazaar/bedrock-vue-create-organization-wizard"
+  },
+  "keywords": [
+    "bedrock"
+  ],
+  "author": {
+    "name": "Digital Bazaar, Inc.",
+    "email": "support@digitalbazaar.com",
+    "url": "https://digitalbazaar.com"
+  },
+  "bugs": {
+    "url": "https://github.com/digitalbazaar/bedrock-vue-create-organization-wizard/issues"
+  },
+  "homepage": "https://github.com/digitalbazaar/bedrock-vue-create-organization-wizard",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.3.1",
+    "bedrock": "^1.0.0",
+    "bedrock-express": "^2.0.6",
+    "bedrock-karma": "^1.0.0",
+    "bedrock-quasar": "^1.0.0",
+    "bedrock-server": "^2.2.0",
+    "bedrock-test": "^2.0.0",
+    "bedrock-views": "^6.0.0",
+    "bedrock-vue": "^1.0.0",
+    "bedrock-vue-create-organization-wizard": "file:..",
+    "bedrock-web": "^1.0.0",
+    "bedrock-webpack": "^2.0.0",
+    "vue": "^2.5.16",
+    "vue-router": "^3.0.1"
+  },
+  "bedrock": {
+    "browserDependencies": [
+      "@fortawesome/fontawesome-free",
+      "bedrock-quasar",
+      "bedrock-vue",
+      "bedrock-vue-create-organization-wizard",
+      "vue",
+      "vue-router"
+    ],
+    "manifest": {
+      "@fortawesome/fontawesome-free": {
+        "main": null,
+        "less": [
+          "less/fontawesome.less",
+          "less/regular.less",
+          "less/solid.less"
+        ]
+      }
+    }
+  }
+}
