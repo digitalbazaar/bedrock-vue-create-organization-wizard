@@ -6,6 +6,7 @@
   "main": "index.js",
   "less": "app.less",
   "scripts": {
+    "start": "node --preserve-symlinks test.js",
     "test": "node --preserve-symlinks test.js test --framework karma",
     "postinstall": "node --preserve-symlinks test.js compile-less"
   },
@@ -35,20 +36,26 @@
     "bedrock-test": "^2.0.0",
     "bedrock-views": "^6.0.0",
     "bedrock-vue": "^1.0.0",
+    "bedrock-vue-address-form": "digitalbazaar/bedrock-vue-address-form#dev",
+    "bedrock-vue-organization-form": "digitalbazaar/bedrock-vue-organization-form#dev",
     "bedrock-vue-create-organization-wizard": "file:..",
     "bedrock-web": "^1.0.0",
     "bedrock-webpack": "^2.0.0",
     "vue": "^2.5.16",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vuelidate": "^0.7.4"
   },
   "bedrock": {
     "browserDependencies": [
       "@fortawesome/fontawesome-free",
       "bedrock-quasar",
       "bedrock-vue",
+      "bedrock-vue-address-form",
+      "bedrock-vue-organization-form",
       "bedrock-vue-create-organization-wizard",
       "vue",
-      "vue-router"
+      "vue-router",
+      "vuelidate"
     ],
     "manifest": {
       "@fortawesome/fontawesome-free": {
