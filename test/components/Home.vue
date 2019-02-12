@@ -70,7 +70,7 @@ export default {
   },
   methods: {
     done() {
-      console.log('Done!');
+      console.log('Done!', this.form);
     },
     identityResolver(id) {
       const persona = this.personas.filter(({value}) => value === id)[0];
