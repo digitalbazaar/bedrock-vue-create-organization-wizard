@@ -3,7 +3,6 @@
   "version": "0.0.1-0",
   "description": "Vue.js create organization wizard component for Bedrock Web apps",
   "main": "index.js",
-  "less": "main.less",
   "dependencies": {
     "bedrock-vue-address-form": "digitalbazaar/bedrock-vue-address-form#dev",
     "bedrock-vue-organization-form": "digitalbazaar/bedrock-vue-organization-form#dev"
