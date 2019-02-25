@@ -1,44 +1,20 @@
 <template>
-  <q-stepper
-    ref="stepper"
-    v-model="currentStep"
-    class="fit no-shadow"
-    contractable>
-    <q-step
-      v-for="(step, index) in steps"
-      :key="index"
-      default
-      :name="index"
-      :title="step.title">
-      <div class="column justify-center items-center">
-        <q-icon
-          size="100px"
-          :name="step.iconName"
-          class="text-primary q-my-lg" />
-        <h3 class="text-weight-light q-my-sm">
-          {{step.label}}
-        </h3>
-        <h6
-          v-if="step.sublabel"
-          class="text-weight-light q-my-md">
-          {{step.sublabel}}
-        </h6>
-        <div
-          v-show="index > 0"
-          class="fit"
-          style="max-width: 600px;">
-          <div class="q-mx-xl q-mb-xl">
-            <br-organization-form
-              v-if="index === 1"
-              v-model="value.businessInfo" />
-            <br-address-form
-              v-else-if="index === 2"
-              v-model="value.addressInfo" />
-            <br-create-organization-review-card
-              v-else
-              :identity-resolver="identityResolver"
-              :form="value" />
-            <q-field v-if="index === 1">
+  <div class="fit">
+    <br-wizard
+      :current-step-index="stepIndex"
+      :total-steps="steps.length"
+      @finish="done($event)"
+      @index="stepIndex = $event">
+      <br-wizard-step
+        :heading="currentStep.heading"
+        :image="currentStep.image"
+        :icon="currentStep.icon"
+        :subheading="currentStep.subheading">
+        <div class="q-pb-xl fit">
+          <br-organization-form
+            v-if="steps[stepIndex].name === 'Organization Information'"
+            v-model="value.businessInfo">
+            <q-field>
               <q-select
                 v-model="value.businessInfo.corporateOfficer.value"
                 :float-label="value.businessInfo.corporateOfficer.label"
@@ -46,34 +22,18 @@
                 :options="personas"
                 class="q-pa-sm q-mt-md" />
             </q-field>
-          </div>
+          </br-organization-form>
+          <br-address-form
+            v-if="steps[stepIndex].name === 'Address Information'"
+            v-model="value.addressInfo" />
+          <br-create-organization-review-card
+            v-if="steps[stepIndex].name === 'Review and Submit'"
+            :identity-resolver="identityResolver"
+            :form="value" />
         </div>
-      </div>
-    </q-step>
-    <q-stepper-navigation class="absolute-bottom-right">
-      <q-btn
-        v-show="!firstStep"
-        outline
-        color="primary"
-        size="md"
-        label="Back"
-        @click="previous()" />
-      <q-btn
-        v-if="!finalStep"
-        class="q-ml-sm"
-        color="primary"
-        size="md"
-        label="Next"
-        @click="next()" />
-      <q-btn
-        v-else
-        class="q-ml-sm"
-        color="primary"
-        size="md"
-        label="Done"
-        @click="done()" />
-    </q-stepper-navigation>
-  </q-stepper>
+      </br-wizard-step>
+    </br-wizard>
+  </div>
 </template>
 <script>
 /*!
@@ -83,6 +43,7 @@
 
 import {BrAddressForm} from 'bedrock-vue-address-form';
 import {BrOrganizationForm} from 'bedrock-vue-organization-form';
+import {BrWizard, BrWizardStep} from 'bedrock-vue-wizard';
 import BrCreateOrganizationReviewCard
   from './BrCreateOrganizationReviewCard.vue';
 
@@ -91,7 +52,9 @@ export default {
   components: {
     BrAddressForm,
     BrCreateOrganizationReviewCard,
-    BrOrganizationForm
+    BrOrganizationForm,
+    BrWizard,
+    BrWizardStep
   },
   props: {
     value: {
@@ -112,39 +75,52 @@ export default {
   },
   data() {
     return {
+      stepIndex: 0,
       steps: [
         {
-          iconName: 'fas fa-walking',
-          label: 'Welcome, let\'s get started!',
-          sublabel: 'We need to walk through a few steps to create an' +
+          icon: {
+            name: 'fas fa-walking',
+            size: '65px',
+            color: 'primary'
+          },
+          heading: 'Welcome, let\'s get started!',
+          subheading: 'We need to walk through a few steps to create an' +
                   ' Organization.',
-          title: 'Introduction',
+          name: 'Introduction'
         },
         {
-          iconName: 'far fa-list-alt',
-          label: 'Let\'s fill out some information about your business',
-          title: 'Business Information'
+          icon: {
+            name: 'far fa-list-alt',
+            size: '65px',
+            color: 'primary'
+          },
+          heading: 'Let\'s fill out some information about your business',
+          name: 'Organization Information'
         },
         {
-          iconName: 'fas fa-map-marker-alt',
-          label: '...just a few more details on where you\'re located',
-          title: 'Address Information'
+          icon: {
+            name: 'fas fa-map-marker-alt',
+            size: '65px',
+            color: 'primary'
+          },
+          heading: 'Where are you located?',
+          name: 'Address Information'
         },
         {
-          iconName: 'fas fa-check-circle',
-          label: 'Does this look okay?',
-          title: 'Review and Submit'
+          icon: {
+            name: 'fas fa-check-circle',
+            size: '65px',
+            color: 'primary'
+          },
+          heading: 'Does this look okay?',
+          name: 'Review and Submit'
         }
-      ],
-      currentStep: 0
+      ]
     };
   },
   computed: {
-    firstStep() {
-      return this.currentStep === 0;
-    },
-    finalStep() {
-      return this.currentStep === this.steps.length - 1;
+    currentStep() {
+      return this.steps[this.stepIndex];
     }
   },
   created() {
@@ -164,14 +140,9 @@ export default {
   methods: {
     done() {
       this.$emit('done');
-    },
-    next() {
-      this.$refs.stepper.next();
-    },
-    previous() {
-      this.$refs.stepper.previous();
     }
-  }};
+  }
+};
 </script>
 <style>
 </style>
