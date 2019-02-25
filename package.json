@@ -5,7 +5,8 @@
   "main": "index.js",
   "dependencies": {
     "bedrock-vue-address-form": "digitalbazaar/bedrock-vue-address-form#dev",
-    "bedrock-vue-organization-form": "digitalbazaar/bedrock-vue-organization-form#dev"
+    "bedrock-vue-organization-form": "digitalbazaar/bedrock-vue-organization-form#dev",
+    "bedrock-vue-wizard": "digitalbazaar/bedrock-vue-wizard#refactor-wizard"
   },
   "peerDependencies": {
     "bedrock-quasar": "^2.0.0",

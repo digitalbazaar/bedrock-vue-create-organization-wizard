@@ -3,11 +3,11 @@
     class="column gutter-md background"
     padding>
     <div class="row items-center">
-        <br-create-organization-wizard
-          v-model="form"
-          :personas="personas"
-          :identity-resolver="identityResolver"
-          @done="done" />
+      <br-create-organization-wizard
+        v-model="form"
+        :personas="personas"
+        :identity-resolver="identityResolver"
+        @done="done" />
     </div>
   </q-page>
 </template>
