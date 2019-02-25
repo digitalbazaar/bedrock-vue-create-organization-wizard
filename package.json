@@ -11,6 +11,11 @@
     "bedrock-quasar": "^2.0.0",
     "vue": "^2.5.16"
   },
+  "devDependencies": {
+    "eslint": "^5.14.1",
+    "eslint-config-digitalbazaar": "^1.6.0",
+    "eslint-plugin-vue": "^5.2.2"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/digitalbazaar/bedrock-vue-create-organization-wizard"
