@@ -1,6 +1,6 @@
 # bedrock-vue-create-organization-wizard ChangeLog
 
-## 0.0.0 - 2019-xx-xx
+## 1.0.0 - 2019-02-27
 
 ### Added
 - Add core files.
