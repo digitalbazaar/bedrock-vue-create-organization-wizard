@@ -4,9 +4,9 @@
   "description": "Vue.js create organization wizard component for Bedrock Web apps",
   "main": "index.js",
   "dependencies": {
-    "bedrock-vue-address-form": "digitalbazaar/bedrock-vue-address-form#dev",
-    "bedrock-vue-organization-form": "digitalbazaar/bedrock-vue-organization-form#dev",
-    "bedrock-vue-wizard": "digitalbazaar/bedrock-vue-wizard#refactor-wizard"
+    "bedrock-vue-address-form": "^1.0.0",
+    "bedrock-vue-organization-form": "^1.0.0",
+    "bedrock-vue-wizard": "^2.0.0"
   },
   "peerDependencies": {
     "bedrock-quasar": "^2.0.0",
