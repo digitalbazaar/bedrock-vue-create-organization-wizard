@@ -1,6 +1,6 @@
 {
   "name": "bedrock-vue-create-organization-wizard",
-  "version": "1.0.0",
+  "version": "1.0.1-0",
   "description": "Vue.js create organization wizard component for Bedrock Web apps",
   "main": "index.js",
   "dependencies": {
