@@ -13,36 +13,20 @@
             Business Information
           </div>
         </div>
-        <div
-          v-for="(val, key) in form.businessInfo"
-          :key="key">
-          <div class="uppercase text-bold q-mt-md q-mb-xs">
-            {{val.label}}
-          </div>
-          <div
-            v-if="key === 'corporateOfficer'"
-            class="row justify-between items-center"
-            style="width: 100%">
-            <div>{{identityResolver(val.value)}}</div>
-          </div>
-          <div v-else>
-            {{val.value}}
-          </div>
+        <div v-for="entry in businessInfoEntries" :key="entry">
+          <br-create-organization-review-card-entry
+            :label="entry.label"
+            :value="entry.value" />
         </div>
         <div
           class="q-my-md"
           style="width: 100%">
           <q-card-separator inset />
         </div>
-        <div
-          v-for="data in form.addressInfo"
-          :key="data.label">
-          <div class="uppercase text-bold q-mt-md q-mb-xs">
-            {{data.label}}
-          </div>
-          <div>
-            {{data.value}}
-          </div>
+        <div v-for="entry in addressInfoEntries" :key="entry">
+          <br-create-organization-review-card-entry
+            :label="entry.label"
+            :value="entry.value" />
         </div>
       </q-card-main>
     </q-card>
@@ -54,8 +38,14 @@
  */
 'use strict';
 
+import BrCreateOrganizationReviewCardEntry from
+  './BrCreateOrganizationReviewCardEntry.vue';
+
 export default {
   name: 'BrCreateOrganizationReviewCard',
+  components: {
+    BrCreateOrganizationReviewCardEntry
+  },
   props: {
     form: {
       type: Object,
@@ -66,6 +56,56 @@ export default {
       type: Function,
       default: undefined,
       required: true
+    }
+  },
+  computed: {
+    addressInfo() {
+      return this.form.addressInfo;
+    },
+    addressInfoEntries() {
+      const {addressInfo} = this;
+      return [
+        {
+          label: 'Street Address',
+          value: addressInfo.streetAddress
+        },
+        {
+          label: 'City',
+          value: addressInfo.addressLocality
+        },
+        {
+          label: 'State/Province/Region',
+          value: addressInfo.addressRegion
+        },
+        {
+          label: 'ZIP/Postal Code',
+          value: addressInfo.postalCode
+        },
+        {
+          label: 'Country',
+          value: addressInfo.addressCountry
+        }
+      ];
+    },
+    businessInfo() {
+      return this.form.businessInfo;
+    },
+    businessInfoEntries() {
+      const {businessInfo} = this;
+      return [
+        {
+          label: 'Legal Name',
+          value: businessInfo.legalName.value
+        },
+        {
+          label: 'Entity Type',
+          value: businessInfo.entityType.value
+        },
+        {
+          label: 'Corporate Officer',
+          value: this.identityResolver(businessInfo.corporateOfficer.value)
+        }
+      ];
     }
   }
 };

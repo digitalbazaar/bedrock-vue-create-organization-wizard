@@ -4,7 +4,7 @@
   "description": "Vue.js create organization wizard component for Bedrock Web apps",
   "main": "index.js",
   "dependencies": {
-    "bedrock-vue-address-form": "^1.0.0",
+    "bedrock-vue-address-form": "^2.0.0",
     "bedrock-vue-organization-form": "^1.0.0",
     "bedrock-vue-wizard": "^2.0.0"
   },

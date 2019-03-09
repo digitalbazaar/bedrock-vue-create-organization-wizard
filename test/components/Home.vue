@@ -38,18 +38,11 @@ export default {
           }
         },
         addressInfo: {
-          addressLocality: {
-            value: ''
-          },
-          addressRegion: {
-            value: ''
-          },
-          postalCode: {
-            value: ''
-          },
-          streetAddress: {
-            value: ''
-          }
+          addressCountry: '',
+          addressLocality: '',
+          addressRegion: '',
+          postalCode: '',
+          streetAddress: ''
         }
       },
       personas: [
