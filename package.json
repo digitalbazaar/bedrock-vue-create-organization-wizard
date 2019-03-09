@@ -5,7 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "bedrock-vue-address-form": "^2.0.0",
-    "bedrock-vue-organization-form": "^1.0.0",
+    "bedrock-vue-organization-form": "digitalbazaar/bedrock-vue-organization-form#update-company-types",
     "bedrock-vue-wizard": "^2.0.0"
   },
   "peerDependencies": {
