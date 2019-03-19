@@ -14,14 +14,11 @@
           <br-organization-form
             v-if="steps[stepIndex].name === 'Organization Information'"
             v-model="value.businessInfo">
-            <q-field>
-              <q-select
-                v-model="value.businessInfo.corporateOfficer.value"
-                :float-label="value.businessInfo.corporateOfficer.label"
-                filter
-                :options="personas"
-                class="q-pa-sm q-mt-md" />
-            </q-field>
+            <q-select
+              v-model="value.businessInfo.corporateOfficer.value"
+              :label="value.businessInfo.corporateOfficer.label"
+              :options="personas"
+              class="q-pa-sm q-mt-md" />
           </br-organization-form>
           <br-address-form
             v-if="steps[stepIndex].name === 'Address Information'"
