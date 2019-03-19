@@ -13,7 +13,9 @@
             Business Information
           </div>
         </div>
-        <div v-for="entry in businessInfoEntries" :key="entry">
+        <div
+          v-for="entry in businessInfoEntries"
+          :key="entry">
           <br-create-organization-review-card-entry
             :label="entry.label"
             :value="entry.value" />
@@ -23,7 +25,9 @@
           style="width: 100%">
           <q-card-separator inset />
         </div>
-        <div v-for="entry in addressInfoEntries" :key="entry">
+        <div
+          v-for="entry in addressInfoEntries"
+          :key="entry">
           <br-create-organization-review-card-entry
             :label="entry.label"
             :value="entry.value" />
