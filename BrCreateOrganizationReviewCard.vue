@@ -1,11 +1,11 @@
 <template>
   <div class="fit">
     <q-card>
-      <q-card-title>
+      <q-card-section>
         <div class="q-headline">
           Summary
         </div>
-      </q-card-title>
+      </q-card-section>
       <q-card-separator />
       <q-card-main>
         <div>
