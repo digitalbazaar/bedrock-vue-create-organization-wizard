@@ -1,13 +1,13 @@
 <template>
   <div class="fit">
     <q-card>
-      <q-card-title>
+      <q-card-section>
         <div class="q-headline">
           Summary
         </div>
-      </q-card-title>
-      <q-card-separator />
-      <q-card-main>
+      </q-card-section>
+      <q-separator />
+      <q-card-section>
         <div>
           <div class="q-title text-weight-light q-my-md">
             Business Information
@@ -23,7 +23,7 @@
         <div
           class="q-my-md"
           style="width: 100%">
-          <q-card-separator inset />
+          <q-separator inset />
         </div>
         <div
           v-for="entry in addressInfoEntries"
@@ -32,7 +32,7 @@
             :label="entry.label"
             :value="entry.value" />
         </div>
-      </q-card-main>
+      </q-card-section>
     </q-card>
   </div>
 </template>
