@@ -18,6 +18,8 @@
               v-model="value.businessInfo.corporateOfficer.value"
               :label="value.businessInfo.corporateOfficer.label"
               :options="personas"
+              emit-value
+              map-options
               class="q-pa-sm q-mt-md" />
           </br-organization-form>
           <br-address-form
