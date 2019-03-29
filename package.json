@@ -10,7 +10,8 @@
   },
   "peerDependencies": {
     "bedrock-quasar": "digitalbazaar/bedrock-quasar#v1",
-    "vue": "^2.5.16"
+    "vue": "^2.5.16",
+    "vue-async-computed": "^3.3.1"
   },
   "devDependencies": {
     "eslint": "^5.14.1",
