@@ -62,6 +62,26 @@ export default {
       required: true
     }
   },
+  asyncComputed: {
+    async businessInfoEntries() {
+      const {businessInfo} = this;
+      return [
+        {
+          label: 'Legal Name',
+          value: businessInfo.legalName.value
+        },
+        {
+          label: 'Entity Type',
+          value: businessInfo.entityType.value
+        },
+        {
+          label: 'Corporate Officer',
+          value: await this.identityResolver(
+            businessInfo.corporateOfficer.value)
+        }
+      ];
+    }
+  },
   computed: {
     addressInfo() {
       return this.form.addressInfo;
@@ -93,23 +113,6 @@ export default {
     },
     businessInfo() {
       return this.form.businessInfo;
-    },
-    businessInfoEntries() {
-      const {businessInfo} = this;
-      return [
-        {
-          label: 'Legal Name',
-          value: businessInfo.legalName.value
-        },
-        {
-          label: 'Entity Type',
-          value: businessInfo.entityType.value
-        },
-        {
-          label: 'Corporate Officer',
-          value: this.identityResolver(businessInfo.corporateOfficer.value)
-        }
-      ];
     }
   }
 };
