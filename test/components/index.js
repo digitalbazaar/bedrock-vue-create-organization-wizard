@@ -19,11 +19,13 @@ brVue.setRootVue(async () => {
     brQuasar,
     Quasar,
     {default: iconSet},
+    {default: VueAsyncComputed},
     {default: Vuelidate}
   ] = await Promise.all([
     import('bedrock-quasar'),
     import('quasar'),
     import('quasar/icon-set/fontawesome-v5'),
+    import('vue-async-computed'),
     import('vuelidate')
   ]);
 
@@ -32,6 +34,7 @@ brVue.setRootVue(async () => {
 
   // install all Vue plugins
   Vue.use(Vuelidate);
+  Vue.use(VueAsyncComputed);
 
   const router = new VueRouter({
     mode: 'history',
