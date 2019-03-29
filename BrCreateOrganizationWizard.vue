@@ -10,7 +10,7 @@
         :image="currentStep.image"
         :icon="currentStep.icon"
         :subheading="currentStep.subheading">
-        <div class="q-pb-xl fit">
+        <div class="q-pb-xl full-width">
           <br-organization-form
             v-if="steps[stepIndex].name === 'Organization Information'"
             v-model="value.businessInfo">
