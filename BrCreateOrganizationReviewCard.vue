@@ -2,7 +2,7 @@
   <div class="fit">
     <q-card>
       <q-card-section>
-        <div class="q-headline">
+        <div class="text-h5">
           Summary
         </div>
       </q-card-section>
