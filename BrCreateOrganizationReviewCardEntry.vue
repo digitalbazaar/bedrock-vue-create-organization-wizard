@@ -1,7 +1,7 @@
 <template>
   <div class="fit">
     <div
-      class="uppercase text-bold q-mt-md q-mb-xs">
+      class="text-uppercase text-bold q-mt-md q-mb-xs">
       {{label}}
     </div>
     <div>
