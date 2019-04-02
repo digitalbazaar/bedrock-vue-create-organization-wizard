@@ -1,6 +1,6 @@
 <template>
   <q-page
-    class="column gutter-md background"
+    class="column q-col-gutter-md background"
     padding>
     <div class="row items-center">
       <br-create-organization-wizard
