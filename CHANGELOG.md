@@ -1,5 +1,18 @@
 # bedrock-vue-create-organization-wizard ChangeLog
 
+## 2.0.0 -
+
+### Removed
+- Remove filter from q-select.
+
+### Added
+- Add VueAsyncComputed.
+
+### Changed
+- Upgrade deprecated Quasar components.
+- Upgrade to bedrock-quasar version 3.0.0.
+- Upgrade to Font Awesome version 5.
+
 ## 1.0.0 - 2019-02-27
 
 ### Added
