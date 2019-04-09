@@ -9,7 +9,7 @@
     "bedrock-vue-wizard": "digitalbazaar/bedrock-vue-wizard#quasar-v1-upgrade"
   },
   "peerDependencies": {
-    "bedrock-quasar": "digitalbazaar/bedrock-quasar#v1",
+    "bedrock-quasar": "^3.0.0",
     "vue": "^2.5.16",
     "vue-async-computed": "^3.3.1"
   },
