@@ -1,6 +1,6 @@
 # bedrock-vue-create-organization-wizard ChangeLog
 
-## 2.0.0 -
+## 2.0.0 - 2019-04-11
 
 ### Removed
 - Remove filter from q-select.
