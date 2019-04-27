@@ -62,7 +62,10 @@ export default {
     };
   },
   methods: {
-    done() {
+    async done(event) {
+      const {waitUntil} = event;
+      const p = sleep(2000);
+      await waitUntil(p);
       console.log('Done!', this.form);
     },
     identityResolver(id) {
@@ -71,6 +74,10 @@ export default {
     }
   }
 };
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 </script>
 <style>
 </style>

@@ -3,7 +3,9 @@
     <br-wizard
       :current-step-index="stepIndex"
       :total-steps="steps.length"
+      @back="back($event)"
       @finish="done($event)"
+      @next="next($event)"
       @index="stepIndex = $event">
       <br-wizard-step
         :heading="currentStep.heading"
@@ -137,8 +139,14 @@ export default {
     }
   },
   methods: {
-    done() {
-      this.$emit('done');
+    back(event) {
+      this.$emit('back', event);
+    },
+    done(event) {
+      this.$emit('done', event);
+    },
+    next(event) {
+      this.$emit('next', event);
     }
   }
 };
