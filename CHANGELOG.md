@@ -1,6 +1,6 @@
 # bedrock-vue-create-organization-wizard ChangeLog
 
-## 2.1.0 - 2019-04-xx
+## 2.1.0 - 2019-04-27
 
 ### Added
 - Add event payload to `done`, `next`, and `back`.
