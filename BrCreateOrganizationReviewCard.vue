@@ -78,7 +78,11 @@ export default {
           label: 'Corporate Officer',
           value: await this.identityResolver(
             businessInfo.corporateOfficer.value)
-        }
+        },
+        {
+          label: 'Profile Color',
+          value: businessInfo.color.value
+        },
       ];
     }
   },

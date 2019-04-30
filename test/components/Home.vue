@@ -30,6 +30,9 @@ export default {
           legalName: {
             value: ''
           },
+          color: {
+            value: '#29A19C'
+          },
           entityType: {
             value: ''
           },
