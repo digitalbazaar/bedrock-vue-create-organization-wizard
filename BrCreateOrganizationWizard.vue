@@ -23,10 +23,6 @@
               emit-value
               map-options
               class="q-pa-sm q-mt-md" />
-              <q-color
-                v-model="value.businessInfo.color.value"
-                style="max-width: 250px"
-                class="q-mx-auto q-mt-xl"/>
           </br-organization-form>
           <br-address-form
             v-if="steps[stepIndex].name === 'Address Information'"
@@ -99,8 +95,7 @@ export default {
             size: '65px',
             color: 'primary'
           },
-          heading: 'Let\'s fill out some information about your business and ' +
-                   'choose a color for it',
+          heading: 'Let\'s fill out some information about your business',
           name: 'Organization Information'
         },
         {

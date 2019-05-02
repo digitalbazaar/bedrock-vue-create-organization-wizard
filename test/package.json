@@ -39,6 +39,7 @@
     "bedrock-vue-create-organization-wizard": "file:..",
     "bedrock-web": "^1.0.0",
     "bedrock-webpack": "^2.0.0",
+    "randomcolor": "^0.5.4",
     "vue": "^2.5.16",
     "vue-async-computed": "^3.6.1",
     "vue-router": "^3.0.1",

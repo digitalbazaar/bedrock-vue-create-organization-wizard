@@ -19,6 +19,7 @@
 
 import {BrCreateOrganizationWizard} from
   'bedrock-vue-create-organization-wizard';
+import {randomColor} from 'randomcolor';
 
 export default {
   name: 'Home',
@@ -31,7 +32,7 @@ export default {
             value: ''
           },
           color: {
-            value: '#29A19C'
+            value: randomColor()
           },
           entityType: {
             value: ''
