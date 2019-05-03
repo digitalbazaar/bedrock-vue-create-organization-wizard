@@ -60,54 +60,36 @@ export default {
       required: true
     }
   },
-  asyncComputed: {
-    async businessInfoEntries() {
-      return [
-        {
-          label: 'Legal Name',
-          value: this.form.businessInfo.legalName.value
-        },
-        {
-          label: 'Entity Type',
-          value: this.form.businessInfo.entityType.value
-        },
-        {
-          label: 'Corporate Officer',
-          value: await this.identityResolver(
-            this.form.businessInfo.corporateOfficer.value)
-        },
-        {
-          label: 'Profile Color',
-          value: this.form.businessInfo.color.value
-        },
-      ];
-    }
-  },
   created() {
-    console.log('Form', this.form);
+    this.form.businessInfo.corporateOfficer.value = this.identityResolver(
+      this.form.businessInfo.corporateOfficer.value);
   },
   computed: {
+    addressInfo() {
+      return this.form.addressInfo;
+    },
     addressInfoEntries() {
+      const {addressInfo} = this;
       return [
         {
           label: 'Street Address',
-          value: this.form.addressInfo.streetAddress
+          value: addressInfo.streetAddress
         },
         {
           label: 'City',
-          value: this.form.addressInfo.addressLocality
+          value: addressInfo.addressLocality
         },
         {
           label: 'State/Province/Region',
-          value: this.form.addressInfo.addressRegion
+          value: addressInfo.addressRegion
         },
         {
           label: 'ZIP/Postal Code',
-          value: this.form.addressInfo.postalCode
+          value: addressInfo.postalCode
         },
         {
           label: 'Country',
-          value: this.form.addressInfo.addressCountry
+          value: addressInfo.addressCountry
         }
       ];
     }
