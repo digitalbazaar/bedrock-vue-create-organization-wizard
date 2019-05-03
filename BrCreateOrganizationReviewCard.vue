@@ -14,11 +14,10 @@
           </div>
         </div>
         <div
-          v-for="entry in businessInfoEntries"
+          v-for="entry in form.businessInfo"
           :key="entry">
           <br-create-organization-review-card-entry
-            :label="entry.label"
-            :value="entry.value" />
+            :entry="entry" />
         </div>
         <div
           class="q-my-md"
@@ -29,8 +28,7 @@
           v-for="entry in addressInfoEntries"
           :key="entry">
           <br-create-organization-review-card-entry
-            :label="entry.label"
-            :value="entry.value" />
+            :entry="entry" />
         </div>
       </q-card-section>
     </q-card>
@@ -64,59 +62,54 @@ export default {
   },
   asyncComputed: {
     async businessInfoEntries() {
-      const {businessInfo} = this;
       return [
         {
           label: 'Legal Name',
-          value: businessInfo.legalName.value
+          value: this.form.businessInfo.legalName.value
         },
         {
           label: 'Entity Type',
-          value: businessInfo.entityType.value
+          value: this.form.businessInfo.entityType.value
         },
         {
           label: 'Corporate Officer',
           value: await this.identityResolver(
-            businessInfo.corporateOfficer.value)
+            this.form.businessInfo.corporateOfficer.value)
         },
         {
           label: 'Profile Color',
-          value: businessInfo.color.value
+          value: this.form.businessInfo.color.value
         },
       ];
     }
   },
+  created() {
+    console.log('Form', this.form);
+  },
   computed: {
-    addressInfo() {
-      return this.form.addressInfo;
-    },
     addressInfoEntries() {
-      const {addressInfo} = this;
       return [
         {
           label: 'Street Address',
-          value: addressInfo.streetAddress
+          value: this.form.addressInfo.streetAddress
         },
         {
           label: 'City',
-          value: addressInfo.addressLocality
+          value: this.form.addressInfo.addressLocality
         },
         {
           label: 'State/Province/Region',
-          value: addressInfo.addressRegion
+          value: this.form.addressInfo.addressRegion
         },
         {
           label: 'ZIP/Postal Code',
-          value: addressInfo.postalCode
+          value: this.form.addressInfo.postalCode
         },
         {
           label: 'Country',
-          value: addressInfo.addressCountry
+          value: this.form.addressInfo.addressCountry
         }
       ];
-    },
-    businessInfo() {
-      return this.form.businessInfo;
     }
   }
 };
