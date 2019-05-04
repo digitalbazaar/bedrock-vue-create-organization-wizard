@@ -4,25 +4,10 @@
       class="text-uppercase text-bold q-mt-md q-mb-xs">
       {{entry.label}}
     </div>
-    <div v-if="entry.value.startsWith('#')">
-      <q-chip
-        square
-        :style="{'background-color': entry.value}"
-        text-color="white"
-        class="q-my-none q-mx-none">
+    <div>
+      <slot name="color">
         {{entry.value}}
-      </q-chip>
-      <q-btn flat color="grey-10" icon="fas fa-eye-dropper" size="10px" class="q-pa-sm">
-        <q-popup-proxy>
-          <q-color v-model="entry.value" />
-        </q-popup-proxy>
-      </q-btn>
-    </div>
-    <div v-else-if="entry.label === 'Corporate Officer'">
-      {{identityResolver(entry.value)}}
-    </div>
-    <div v-else>
-      {{entry.value}}
+      </slot>
     </div>
   </div>
 </template>
@@ -37,11 +22,6 @@ export default {
   props: {
     entry: {
       type: Object,
-      default: undefined,
-      required: true
-    },
-    identityResolver: {
-      type: Function,
       default: undefined,
       required: true
     }

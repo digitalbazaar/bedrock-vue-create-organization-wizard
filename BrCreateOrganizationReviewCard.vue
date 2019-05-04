@@ -14,11 +14,30 @@
           </div>
         </div>
         <div
-          v-for="entry in form.businessInfo"
+          v-for="entry in businessInfoEntries"
           :key="entry">
           <br-create-organization-review-card-entry
-            :identity-resolver="identityResolver"
-            :entry="entry" />
+            :entry="entry">
+            <template #color v-if="entry.value.startsWith('#')">
+              <q-chip
+                square
+                :style="{'background-color': form.businessInfo.color.value}"
+                text-color="white"
+                class="q-my-none q-mx-none">
+                {{form.businessInfo.color.value}}
+              </q-chip>
+              <q-btn
+                flat
+                color="grey-10"
+                icon="fas fa-eye-dropper"
+                size="10px"
+                class="q-pa-sm">
+                <q-popup-proxy>
+                  <q-color v-model="form.businessInfo.color.value" />
+                </q-popup-proxy>
+              </q-btn>
+            </template>
+          </br-create-organization-review-card-entry>
         </div>
         <div
           class="q-my-md"
@@ -61,6 +80,30 @@ export default {
       required: true
     }
   },
+  asyncComputed: {
+    async businessInfoEntries() {
+      const {businessInfo} = this;
+      return [
+        {
+          label: 'Legal Name',
+          value: businessInfo.legalName.value
+        },
+        {
+          label: 'Entity Type',
+          value: businessInfo.entityType.value
+        },
+        {
+          label: 'Corporate Officer',
+          value: await this.identityResolver(
+            businessInfo.corporateOfficer.value)
+        },
+        {
+          label: 'Profile Color',
+          value: businessInfo.color.value
+        }
+      ];
+    }
+  },
   computed: {
     addressInfo() {
       return this.form.addressInfo;
@@ -89,6 +132,9 @@ export default {
           value: addressInfo.addressCountry
         }
       ];
+    },
+    businessInfo() {
+      return this.form.businessInfo;
     }
   }
 };
