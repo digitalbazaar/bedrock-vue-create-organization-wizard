@@ -61,8 +61,7 @@ export default {
     }
   },
   created() {
-    this.form.businessInfo.corporateOfficer.value = this.identityResolver(
-      this.form.businessInfo.corporateOfficer.value);
+    this.resolve();
   },
   computed: {
     addressInfo() {
@@ -92,6 +91,13 @@ export default {
           value: addressInfo.addressCountry
         }
       ];
+    }
+  },
+  methods: {
+    async resolve() {
+      const val = this.form.businessInfo.corporateOfficer.value;
+      const resolved = await this.identityResolver(val);
+      this.form.businessInfo.corporateOfficer.value = resolved;
     }
   }
 };
