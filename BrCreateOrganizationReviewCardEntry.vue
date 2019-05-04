@@ -18,6 +18,9 @@
         </q-popup-proxy>
       </q-btn>
     </div>
+    <div v-else-if="entry.label === 'Corporate Officer'">
+      {{identityResolver(entry.value)}}
+    </div>
     <div v-else>
       {{entry.value}}
     </div>
@@ -37,6 +40,11 @@ export default {
       default: undefined,
       required: true
     },
+    identityResolver: {
+      type: Function,
+      default: undefined,
+      required: true
+    }
   }
 };
 </script>

@@ -17,6 +17,7 @@
           v-for="entry in form.businessInfo"
           :key="entry">
           <br-create-organization-review-card-entry
+            :identity-resolver="identityResolver"
             :entry="entry" />
         </div>
         <div
@@ -60,9 +61,6 @@ export default {
       required: true
     }
   },
-  created() {
-    this.resolve();
-  },
   computed: {
     addressInfo() {
       return this.form.addressInfo;
@@ -91,13 +89,6 @@ export default {
           value: addressInfo.addressCountry
         }
       ];
-    }
-  },
-  methods: {
-    async resolve() {
-      const val = this.form.businessInfo.corporateOfficer.value;
-      const resolved = await this.identityResolver(val);
-      this.form.businessInfo.corporateOfficer.value = resolved;
     }
   }
 };
