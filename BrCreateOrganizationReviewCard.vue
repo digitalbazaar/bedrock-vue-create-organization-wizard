@@ -98,7 +98,7 @@ export default {
             businessInfo.corporateOfficer.value)
         },
         {
-          label: 'Profile Color',
+          label: 'Organization Color',
           value: businessInfo.color.value
         }
       ];
