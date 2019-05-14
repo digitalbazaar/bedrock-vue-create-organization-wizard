@@ -32,9 +32,11 @@
                 icon="fas fa-eye-dropper"
                 size="10px"
                 class="q-pa-sm">
-                <q-popup-proxy>
+                <q-menu
+                  anchor="center middle"
+                  self="center middle">
                   <q-color v-model="form.businessInfo.color.value" />
-                </q-popup-proxy>
+                </q-menu>
               </q-btn>
             </template>
           </br-create-organization-review-card-entry>
