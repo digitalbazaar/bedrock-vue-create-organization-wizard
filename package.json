@@ -9,14 +9,14 @@
     "bedrock-vue-wizard": "^3.0.0"
   },
   "peerDependencies": {
-    "bedrock-quasar": "^3.0.0",
+    "bedrock-quasar": "3.0.0 - 4.x",
     "vue": "^2.5.16",
     "vue-async-computed": "^3.3.1"
   },
   "devDependencies": {
-    "eslint": "^5.14.1",
-    "eslint-config-digitalbazaar": "^1.6.0",
-    "eslint-plugin-vue": "^5.2.2"
+    "eslint": "^6.8.0",
+    "eslint-config-digitalbazaar": "^2.3.0",
+    "eslint-plugin-vue": "^6.2.1"
   },
   "repository": {
     "type": "git",
