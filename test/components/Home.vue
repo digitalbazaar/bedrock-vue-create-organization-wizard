@@ -19,6 +19,7 @@
 
 import {BrCreateOrganizationWizard} from
   'bedrock-vue-create-organization-wizard';
+import {randomColor} from 'randomcolor';
 
 export default {
   name: 'Home',
@@ -29,6 +30,9 @@ export default {
         businessInfo: {
           legalName: {
             value: ''
+          },
+          color: {
+            value: randomColor()
           },
           entityType: {
             value: ''

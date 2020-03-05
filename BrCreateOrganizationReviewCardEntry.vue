@@ -2,10 +2,12 @@
   <div class="fit">
     <div
       class="text-uppercase text-bold q-mt-md q-mb-xs">
-      {{label}}
+      {{entry.label}}
     </div>
     <div>
-      {{value}}
+      <slot name="color">
+        {{entry.value}}
+      </slot>
     </div>
   </div>
 </template>
@@ -18,13 +20,8 @@
 export default {
   name: 'BrCreateOrganizationReviewCardEntry',
   props: {
-    label: {
-      type: String,
-      default: undefined,
-      required: true
-    },
-    value: {
-      type: String,
+    entry: {
+      type: Object,
       default: undefined,
       required: true
     }

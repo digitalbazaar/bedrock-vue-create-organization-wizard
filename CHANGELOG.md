@@ -1,5 +1,10 @@
 # bedrock-vue-create-organization-wizard ChangeLog
 
+## 2.2.0 - 2019-05-08
+
+### Added
+- Add random color to organization.
+
 ## 2.1.0 - 2019-04-27
 
 ### Added

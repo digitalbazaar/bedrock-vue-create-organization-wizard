@@ -133,6 +133,10 @@ export default {
           corporateOfficer: {
             ...this.value.businessInfo.corporateOfficer,
             label: 'Corporate Officer'
+          },
+          color: {
+            ...this.value.businessInfo.color,
+            label: 'Profile Color'
           }
         }
       });
